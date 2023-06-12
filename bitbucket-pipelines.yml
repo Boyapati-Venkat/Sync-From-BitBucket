@@ -4,5 +4,5 @@ pipelines:
   default:
     - step:
         script:
-          - git push --mirror git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git          
+          - git clone git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git
           

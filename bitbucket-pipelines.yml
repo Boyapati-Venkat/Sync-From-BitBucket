@@ -6,8 +6,6 @@ pipelines:
         clone:
           enabled: false
         script:
-          - git clone --bare https://Boyapati-Venkat@bitbucket.org/Boyapati-Venkat/abot-cloud-infra.git
-          - cd RepoName.git
-          - git push --mirror https://github.com/Boyapati-Venkat/terraform-jenkins-ec2.git
+          - git clone --bare git@bitbucket.org:Boyapati-Venkat/abot-cloud-infra.git
           
           

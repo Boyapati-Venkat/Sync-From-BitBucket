@@ -6,6 +6,8 @@ pipelines:
         clone:
           enabled: false
         script:
-          - git clone --bare git@bitbucket.org:RepoOrg/RepoName.git
+          - git clone --bare git@bitbucket.org:Boyapati-Venkat/abot-cloud-infra.git
           - cd RepoName.git
-          - git push --mirror git@github.com:RepoOrg/RepoName.git
+          - git push --mirror git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git
+          
+          

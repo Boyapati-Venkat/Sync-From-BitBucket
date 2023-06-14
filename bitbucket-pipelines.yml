@@ -8,4 +8,6 @@ pipelines:
         script:
           - git clone --bare git@bitbucket.org:Boyapati-Venkat/abot-cloud-infra.git
           - cd abot-cloud-infra.git
+          - eval "$(ssh-agent -s)"
+          - ssh-add /opt/atlassian/pipelines/agent/ssh/id_rsa
           - git push --mirror git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git

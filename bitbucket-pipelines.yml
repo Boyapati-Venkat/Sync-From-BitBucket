@@ -13,6 +13,6 @@ pipelines:
           - cat ~/.ssh/id_ed25519
           - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
           - eval "$(ssh-agent -s)"
-          - ssh-add ~/.ssh/id_ed25519
+          - eval `ssh-agent -s` && ssh-add ~/.ssh/id_ed25519 && ssh-add -l
           - ls -la
           - git clone git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git

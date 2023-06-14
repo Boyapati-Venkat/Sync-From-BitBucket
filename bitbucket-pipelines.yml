@@ -10,4 +10,6 @@ pipelines:
           - cd abot-cloud-infra.git
           - eval "$(ssh-agent -s)"
           - ssh-add /opt/atlassian/pipelines/agent/ssh/id_rsa
+          - cd /opt/atlassian/pipelines/agent/ssh/
+          -ls -la
           - git push --mirror git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git

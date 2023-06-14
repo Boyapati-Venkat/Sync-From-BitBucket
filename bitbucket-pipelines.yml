@@ -12,4 +12,6 @@ pipelines:
           - ssh-add /opt/atlassian/pipelines/agent/ssh/id_rsa
           - cd /opt/atlassian/pipelines/agent/ssh/
           - ls -la
+          - cd ~/.ssh
+          - ls -la
           - git push --mirror git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git

@@ -1,9 +1,14 @@
-clone:
-  depth: full
+# bitbucket-pipelines.yml
+
 pipelines:
   default:
     - step:
+        name: Configure SSH and Clone Repository
+        image: atlassian/default-image:2
         script:
-          - ls -la
+          - mkdir -p ~/.ssh
+          - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          - chmod 600 ~/.ssh/id_rsa
+          - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
           - git clone git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git
-          
+          - ls -la

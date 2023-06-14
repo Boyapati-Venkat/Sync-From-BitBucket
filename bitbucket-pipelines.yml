@@ -11,4 +11,6 @@ pipelines:
           - eval "$(ssh-agent -s)"
           - cd ~/.ssh
           - ls -la
+          - cat config
+          - cd abot-cloud-infra.git
           - git push --mirror git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git

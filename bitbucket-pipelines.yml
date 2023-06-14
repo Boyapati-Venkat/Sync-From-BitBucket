@@ -10,7 +10,7 @@ pipelines:
           - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           - chmod 600 ~/.ssh/id_ed25519
           - ls -la
-          - cat ~/.ssh/id_rsa
+          - cat ~/.ssh/id_ed25519
           - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
           - eval "$(ssh-agent -s)"
           - ssh-add ~/.ssh/id_ed25519

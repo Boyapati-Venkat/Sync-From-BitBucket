@@ -6,13 +6,18 @@ pipelines:
         name: Configure SSH and Clone Repository
         image: alpine/git:latest
         script:
-          - git clone --bare git@bitbucket.org:Boyapati-Venkat/abot-cloud-infra.git
-          - cd abot-cloud-infra.git
           - eval "$(ssh-agent -s)"
           - ssh-add /opt/atlassian/pipelines/agent/ssh/id_rsa
           - cd /opt/atlassian/pipelines/agent/ssh/
           - ls -la
           - cd ~/.ssh
+          - echo '# Default GitHub' >> ~/.ssh/config
+          - echo 'Host github.com' >> ~/.ssh/config
+          - echo '  HostName github.com' >> ~/.ssh/config
+          - echo '  User git' >> ~/.ssh/config
+          - echo '  IdentityFile /opt/atlassian/pipelines/agent/ssh/id_rsa' >> ~/.ssh/config
           - ls -la
           - cat config
+          - git clone --bare git@bitbucket.org:Boyapati-Venkat/abot-cloud-infra.git
+          - cd abot-cloud-infra.git
           - git push --mirror git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git

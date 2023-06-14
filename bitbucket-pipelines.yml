@@ -7,5 +7,5 @@ pipelines:
         image: atlassian/default-image:2
         script:
           - git clone --bare git@bitbucket.org:Boyapati-Venkat/abot-cloud-infra.git
-          - cd abot-cloud-infra
+          - cd abot-cloud-infra.git
           - git push --mirror https://github.com/Boyapati-Venkat/Sync-From-BitBucket.git

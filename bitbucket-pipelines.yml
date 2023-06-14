@@ -4,5 +4,6 @@ pipelines:
   default:
     - step:
         script:
+          - ls -la
           - git clone git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git
           

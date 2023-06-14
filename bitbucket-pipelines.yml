@@ -4,10 +4,11 @@ pipelines:
   default:
     - step:
         name: Configure SSH and Clone Repository
-        image: atlassian/default-image:2
+        image: alpine/git:latest
         script:
           - git clone --bare git@bitbucket.org:Boyapati-Venkat/abot-cloud-infra.git
           - cd abot-cloud-infra.git
           - eval "$(ssh-agent -s)"
-          - ssh-add ~/.ssh/id_rsa
+          - cd ~/.ssh
+          - ls -la
           - git push --mirror git@github.com:Boyapati-Venkat/Sync-From-BitBucket.git

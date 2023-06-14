@@ -6,15 +6,6 @@ pipelines:
         name: Configure SSH and Clone Repository
         image: atlassian/default-image:2
         script:
-          - mkdir -p ~/.ssh
-          - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-          - chmod 600 ~/.ssh/id_ed25519
-          - ls -la
-          - cat ~/.ssh/id_ed25519
-          - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-          - eval "$(ssh-agent -s)"
-          - eval `ssh-agent -s` && ssh-add ~/.ssh/id_ed25519 && ssh-add -l
-          - ls -la
           - git clone --bare git@bitbucket.org:Boyapati-Venkat/abot-cloud-infra.git
           - cd abot-cloud-infra
           - git push --mirror https://github.com/Boyapati-Venkat/Sync-From-BitBucket.git
